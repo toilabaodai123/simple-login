@@ -1,1 +1,12 @@
+#app
+app/docker
+
+#terraform
+infrastructure/terraform/development-terraform.tfvars
+infrastructure/terraform/terraform.tfstate
+infrastructure/terraform/terraform.tfstate.*
+infrastructure/terraform/.terraform
+infrastructure/terraform/.terraform.*
+
+#etc
 *.pem
