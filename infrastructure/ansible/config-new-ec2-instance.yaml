@@ -1,0 +1,68 @@
+---
+- name: Wait 300 seconds for port 22 to become open and contain "OpenSSH"
+  gather_facts: False
+  hosts: all
+  tasks:
+    - name: ensure ssh is open
+      wait_for:
+        port: 22
+        host: '{{ (ansible_ssh_host|default(ansible_host))|default(inventory_hostname) }}'
+        search_regex: OpenSSH
+        delay: 10
+        timeout: 300
+      vars:
+        ansible_connection: local
+        ansible_python_interpreter: /usr/bin/python
+
+- name: Install docker
+  hosts: all
+  become: true
+  become_user: root
+  become_method: su
+  become_exe: sudo su -
+  tasks:
+    - name: Install docker
+      community.general.snap:
+        name: docker
+        state: present
+        classic: yes
+
+- name: Add docker group and add user to the group
+  hosts: all
+  become: true
+  become_user: root
+  become_method: su
+  become_exe: sudo su -
+  tasks:
+    - name: Add docker group
+      group:
+        name: docker
+        state: present
+
+    - name: Add user to docker group
+      user:
+        name: ubuntu
+        append: true
+        groups: docker
+
+- name: Pull docker image and run it
+  hosts: all
+  become: true
+  become_user: root
+  become_method: su
+  become_exe: sudo su -
+  tasks:
+    - name: Pull docker image
+      community.docker.docker_image:
+        name: daipham99/learning:0.2
+        source: pull
+
+    - name: Run docker image
+      community.docker.docker_container:
+        image: daipham99/learning:0.2
+        name: app
+        pull: true
+        ports:
+          - "80:80"
+          - "443:443"
+

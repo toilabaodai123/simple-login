@@ -1,5 +1,5 @@
 terraform {
-  required_version = "1.5.1"
+  required_version = ">=1.5.1"
 
     required_providers {
     aws = {
@@ -11,6 +11,8 @@ terraform {
 
 variable "access_key" {}
 variable "secret_key" {}
+variable "ansible_working_dir" {}
+variable "ec2_ssh_private_key" {}
 
 provider "aws" {
   region = "ap-southeast-1"
@@ -22,8 +24,16 @@ resource "aws_instance" "intern-devops" {
   ami           = "ami-0df7a207adb9748c7"
   instance_type = "t2.micro"
   security_groups = ["launch-wizard-4"]
+  key_name = "intern-devops"
 
   tags = {
     Name = "intern-devops"
   }
+
+  provisioner "local-exec" {
+    working_dir = var.ansible_working_dir
+    command = "ansible-playbook --inventory ${self.public_ip}, --private-key ${var.ec2_ssh_private_key} --user ubuntu config-new-ec2-instance.yaml"
+  }
 }
+
+
