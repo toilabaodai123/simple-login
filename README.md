@@ -2,8 +2,8 @@
 Use tools and technologies to create an infrastructure for a webservice.
 ## Tools, other technologies used in this project
 - **Docker**  
-    Build container image for the Laravel web application.  
-    Serve the container image from above on a AWS EC2 instance.  
+    Build a Docker image for the Laravel web application.  
+    Run a Docker container using the image from above on an AWS EC2 instance to serve requests.  
 - **AWS**  
     EC2:  For a webservice using a Docker container to handle requests  
     ~~S3:  Store backups~~ (On progress...)  
