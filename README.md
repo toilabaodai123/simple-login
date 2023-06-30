@@ -1,5 +1,5 @@
-# About
-This project is mainly about practicing with infrastructure.
+# About  
+Use tools and technologies to create an infrastructure for a webservice.
 ## Tools, other technologies used in this project
 - **Docker**  
     Build container image for the Laravel web application.  
