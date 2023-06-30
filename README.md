@@ -1,4 +1,4 @@
-#About
+# About
 This project is mainly about practicing with infrastructure.
 ## Tools, other technologies used in this project
 - **Docker**
