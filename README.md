@@ -23,3 +23,4 @@ This project is mainly about practicing with infrastructure.
 - Terraform triggers Ansible after creating the infrastructure successfully
 - Ansible runs a playbook 
 - The AWS EC2 instance is now fully configured by Ansible and ready to serve requests
+![alt text](result.png)
