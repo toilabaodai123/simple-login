@@ -57,12 +57,12 @@
   tasks:
     - name: Pull docker image
       community.docker.docker_image:
-        name: daipham99/learning:0.2
+        name: daipham99/learning
         source: pull
 
     - name: Run docker image
       community.docker.docker_container:
-        image: daipham99/learning:0.2
+        image: daipham99/learning
         name: app
         pull: true
         ports:
