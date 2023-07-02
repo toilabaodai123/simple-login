@@ -15,7 +15,7 @@ Use tools and technologies to create an infrastructure for a webservice.
     Config the infrastructure from Terraform, the steps are:  
     - Install Docker  
     - Add user to Docker's group  
-    - Pull Docker image (daipham99/learning:0.2) and uses it to run a Docker container  
+    - Pull Docker image (https://hub.docker.com/repository/docker/daipham99/learning) and uses it to run a Docker container  
 
 ## The main flow  
 - Create the infrastructure using Terraform
