@@ -5,9 +5,9 @@ Use tools and technologies to create an infrastructure for a webservice.
     Build a Docker image for the Laravel web application.  
     Run a Docker container using the image from above on an AWS EC2 instance to serve requests.  
 - **AWS**  
-    EC2:  For a webservice using a Docker container to handle requests  
-    S3:  For storing backups 
-    RDS: For a database 
+    EC2: For a webservice using a Docker container to handle requests  
+    S3: For storing db exported files 
+    RDS: For a database  
 - **Terraform**  
     To create the infrastructure  
     Trigger Ansible to config the infrastructure when the infrastructure is created  
