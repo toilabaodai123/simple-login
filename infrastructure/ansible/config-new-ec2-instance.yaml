@@ -13,17 +13,6 @@
       vars:
         ansible_connection: local
 
-# - name: Install docker
-#   hosts: all
-#   become: true
-#   become_user: root
-#   become_method: su
-#   become_exe: sudo su -
-#   tasks:
-#     - name: Install docker
-#       community.general.snap:
-#         name: docker
-
 - name: Install docker
   hosts: all
   tasks:

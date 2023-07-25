@@ -1,2 +1,2 @@
 [ec2_instance]
-13.213.9.138 ansible_ssh_private_key_file=/home/dai/simple-login/intern-devops.pem ansible_user=ubuntu
+44.201.162.137 ansible_ssh_private_key_file=/home/dai/simple-login/ec2-key.pem ansible_user=ubuntu

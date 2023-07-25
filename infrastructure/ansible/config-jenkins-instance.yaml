@@ -1,0 +1,53 @@
+---
+- name: Wait 300 seconds for port 22 to become open and contain "OpenSSH"
+  gather_facts: False
+  hosts: all
+  tasks:
+    - name: ensure ssh is open
+      wait_for:
+        port: 22
+        host: '{{ (ansible_ssh_host|default(ansible_host))|default(inventory_hostname) }}'
+        search_regex: OpenSSH
+        delay: 10
+        timeout: 300
+      vars:
+        ansible_connection: local
+
+- name: Configure Jenkins
+  gather_facts: False
+  hosts: all
+  become: true
+  become_user: root
+  become_method: su
+  become_exe: sudo su -
+  tasks:
+  
+  - name: Update apt 
+    shell: apt update 
+      
+  - name: Install Java JDK
+    apt:
+      name: openjdk-17-jre
+      state: present
+
+  - name: Download jenkins key
+    shell: curl -fsSL https://pkg.jenkins.io/debian/jenkins.io-2023.key | tee /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+    ignore_errors: true
+
+  - name: Update jenkins key
+    shell: echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian binary/ | tee /etc/apt/sources.list.d/jenkins.list > /dev/null
+    ignore_errors: true
+
+  - name: Update apt 
+    shell: apt update  
+
+  - name: Install Jenkins
+    apt:
+      name: jenkins
+      state: latest
+    ignore_errors: true
+
+  - name: Make sure jenkins is running
+    systemd:
+      state: started
+      name: jenkins
