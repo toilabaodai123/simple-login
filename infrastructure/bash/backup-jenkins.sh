@@ -4,4 +4,4 @@
 #!/bin/bash
 
 zip -r  jenkins-volume ~/simple-login/jenkins-volume
-aws s3 cp jenkins-volume.zip "s3://intern-devops2/jenkins/$(date)"
+aws s3 mv jenkins-volume.zip "s3://intern-devops2/jenkins/$(date)"
