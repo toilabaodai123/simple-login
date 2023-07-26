@@ -13,19 +13,15 @@
       vars:
         ansible_connection: local
 
-- name: Install docker
-  hosts: all
-  tasks:
-    - name: Install docker
-      command: sudo snap install docker
-
 - name: Add docker group and add user to the group
   hosts: all
   become: true
   become_user: root
   become_method: su
   become_exe: sudo su -
-  tasks:
+    - name: Install docker
+      command: snap install docker
+
     - name: Add docker group
       group:
         name: docker
@@ -37,13 +33,6 @@
         append: true
         groups: docker
 
-- name: Pull docker image and run it
-  hosts: all
-  become: true
-  become_user: root
-  become_method: su
-  become_exe: sudo su -
-  tasks:
     - name: Pull docker image
       community.docker.docker_image:
         name: daipham99/learning
@@ -57,4 +46,5 @@
         ports:
           - "80:80"
           - "443:443"
+
 
