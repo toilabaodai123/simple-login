@@ -50,17 +50,12 @@ pipeline {
         stage('Push to docker repo') {
             when {
                 branch 'main'
-            }  
-            environment {
-                DOCKER_HUB_CREDENTIALS = credentials("dockerhub")
-            }                
+            }              
             steps{
 				sh """
 				    cd app
-				    docker login -u ${DOCKER_HUB_CREDENTIALS_USR} -p ${DOCKER_HUB_CREDENTIALS_PSW}
 				    docker image tag docker_image daipham99/learning:latest
 				    docker image push daipham99/learning:latest
-				    docker logout
 				"""
             }
         }
