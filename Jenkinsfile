@@ -9,9 +9,7 @@ pipeline {
                 """
             }
         } 
-    }
 
-    stages {
         stage('For main branch') {
             when {
                 branch "main"
@@ -28,6 +26,6 @@ pipeline {
             steps {
                 echo "for feature branch..."
             }
-        }         
-    }    
+        }          
+    }  
 }
