@@ -30,7 +30,7 @@ resource "aws_instance" "intern-devops" {
   instance_type = "t2.micro"
 
   key_name = "jenkins"
-  security_groups = ["Jenkins"]
+  security_groups = ["intern-devops"]
 
   tags = {
     Name = "intern-devops"
@@ -46,9 +46,9 @@ resource "aws_instance" "jenkins" {
   ami           = var.aws_ec2_jenkins_ami
   instance_type = "t2.micro"
 
-  security_groups = ["Jenkins"]
   key_name = "jenkins"
-
+  security_groups = ["intern-devops"]
+  
   tags = {
     Name = "jenkins"
   }

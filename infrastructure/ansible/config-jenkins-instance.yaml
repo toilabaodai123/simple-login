@@ -101,9 +101,9 @@
 
   - name: Make sure jenkins is running
     systemd:
-      state: started
       name: jenkins
+      state: reloaded
 
   - name: Download aws cli zip then remove the files
-    shell: curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" | unzip awscliv2.zip | ./aws/install | rm -rf aws | rm -f awscliv2.zip
+    shell: curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip && ./aws/install && rm -rf aws && rm -f awscliv2.zip
 

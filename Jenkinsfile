@@ -9,7 +9,7 @@ pipeline {
                     docker version
                 """
             }
-        }  
+        }
         
         stage('Git') {
             steps {
@@ -28,13 +28,13 @@ pipeline {
             steps{
                 sh """
 					cd app
-                    docker build -t docker_image .
-                    docker run -v .:/app --rm -w /app composer:2.5.8 composer install
-					docker run -d --name app -v .:/app docker_image 					
+					docker run -d --rm -v .:/app --name composer composer:2.5.8 bash -c 'composer install && php artisan key generate' 
+                    docker build -m 0.1g -t docker_image .
+					docker run -m 0.1g -d --name app -v .:/app docker_image
                 """ 
             }
-        }		
-
+        }
+        
         stage('Testing...') {
             steps {
 				echo "Running selenium test cases..."
@@ -68,7 +68,10 @@ pipeline {
             steps{
                 withCredentials([sshUserPrivateKey(credentialsId: 'ec2-ssh', keyFileVariable: 'MY_SSH_KEY', usernameVariable: "MY_SSH_USER")]) {
                     sh """
-                        ssh -o StrictHostKeyChecking=no -i $MY_SSH_KEY $MY_SSH_USER@3.86.231.136 docker container stop app ; docker build . --pull -t daipham99/learning:latest ; docker container prune -f
+                        ssh -o StrictHostKeyChecking=no -i $MY_SSH_KEY $MY_SSH_USER@3.82.242.77 docker container stop app
+                        ssh -o StrictHostKeyChecking=no -i $MY_SSH_KEY $MY_SSH_USER@3.82.242.77 docker container rm app -f
+                        ssh -o StrictHostKeyChecking=no -i $MY_SSH_KEY $MY_SSH_USER@3.82.242.77 docker container prune -f
+                        ssh -o StrictHostKeyChecking=no -i $MY_SSH_KEY $MY_SSH_USER@3.82.242.77 docker run -d --pull always -p 80:80 -p 443:443 --name app daipham99/learning:latest
                     """
                 }
             }
