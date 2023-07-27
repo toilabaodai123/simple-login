@@ -10,18 +10,11 @@ pipeline {
             }
         }  
 		
-        stage('Get enviroment') {	
+        stage('Get enviroment file') {	
             steps {
-			    if (env.BRANCH_NAME == "main") {                                          
-					sh """
+                    sh """
 						cp ./app/.env.example ./app/.env
 					"""
-				} else {                                   
-					sh """
-						cp ./app/.env.example ./app/.env
-					"""
-				} 
-               
             }
         }			
 
