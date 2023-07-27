@@ -1,13 +1,6 @@
 pipeline {
     agent any
     stages {
-        stage('Check enviroment') {
-            steps {
-                sh "echo hi"
-            }
-<<<<<<< HEAD
-        } 
-
         stage('For main branch') {
             when {
                 branch "main"
@@ -26,8 +19,4 @@ pipeline {
             }
         }          
     }  
-=======
-        }  
-    }
->>>>>>> 4468f40 (update jenkins)
 }
