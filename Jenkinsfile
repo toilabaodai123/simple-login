@@ -22,7 +22,7 @@ pipeline {
             steps{
                 sh """
 					cd app
-					docker run -d --rm -v .:/app composer:2.5.8 bash -c 'cd app && composer install && php artisan key:generate' 
+					docker run -d --rm -v .:/app -w /app composer:2.5.8 sh -c "composer install;php artisan key:generate"
                     docker build -t docker_image .
 					docker run -d --name app -v .:/app docker_image
                 """ 
@@ -77,6 +77,7 @@ pipeline {
                         ssh -o StrictHostKeyChecking=no -i $MY_SSH_KEY ubuntu@13.229.115.184 docker container prune -f   
                         ssh -o StrictHostKeyChecking=no -i $MY_SSH_KEY ubuntu@13.229.115.184 docker image prune -f
                         ssh -o StrictHostKeyChecking=no -i $MY_SSH_KEY ubuntu@13.229.115.184 docker run -d --pull always -p 80:80 -p 443:443 --name app daipham99/learning:latest   
+                        ssh -o StrictHostKeyChecking=no -i $MY_SSH_KEY ubuntu@13.229.115.184 docker exec -w /app php artisan key:generate
                     """
                 }
             }
