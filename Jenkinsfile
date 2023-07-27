@@ -22,9 +22,9 @@ pipeline {
             steps{
                 sh """
 					cd app
-					docker run -d --rm -v .:/app composer:2.5.8 bash -c 'composer install' 
-                    docker build -m 0.1g -t docker_image .
-					docker run -m 0.1g -d --name app -v .:/app docker_image
+					docker run -d --rm -v .:/app composer:2.5.8 bash -c 'cd app && composer install' 
+                    docker build -t docker_image .
+					docker run -d --name app -v .:/app docker_image
                     docker exec -u root app bash -c "cd app && php artisan key:generate"
                 """ 
             }
@@ -71,9 +71,9 @@ pipeline {
                 branch 'main'
             }  
             steps{
-                withCredentials([sshUserPrivateKey(credentialsId: 'ec2-ssh', keyFileVariable: 'MY_SSH_KEY', usernameVariable: "MY_SSH_USER")]) {
+                withCredentials([sshUserPrivateKey(credentialsId: 'ec2-ssh', keyFileVariable: 'MY_SSH_KEY')]) {
                     sh """
-                        ssh -o StrictHostKeyChecking=no -i $MY_SSH_KEY $MY_SSH_USER@13.229.115.184 bash <<< EOF
+                        ssh -o StrictHostKeyChecking=no -i $MY_SSH_KEY ubuntu@13.229.115.184 bash <<< EOF
                             docker container stop app
                             docker container rm app -f
                             docker container prune -f
