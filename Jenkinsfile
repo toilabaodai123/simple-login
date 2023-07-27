@@ -3,11 +3,9 @@ pipeline {
     stages {
         stage('Check enviroment') {
             steps {
-                sh """
-                    git --version
-                    docker version
-                """
+                sh "echo hi"
             }
+<<<<<<< HEAD
         } 
 
         stage('For main branch') {
@@ -28,4 +26,8 @@ pipeline {
             }
         }          
     }  
+=======
+        }  
+    }
+>>>>>>> 4468f40 (update jenkins)
 }
