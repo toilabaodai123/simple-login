@@ -25,22 +25,22 @@ provider "aws" {
   secret_key = var.secret_key
 }
 
-# resource "aws_instance" "intern-devops" {
-#   ami           = "ami-0df7a207adb9748c7"
-#   instance_type = "t2.micro"
+resource "aws_instance" "intern-devops" {
+  ami           = var.aws_ec2_web_app_ami
+  instance_type = "t2.micro"
 
-#   key_name = "web-server"
-#   security_groups = ["launch-wizard-4"]
+  key_name = "jenkins"
+  security_groups = ["Jenkins"]
 
-#   tags = {
-#     Name = "intern-devops"
-#   }
+  tags = {
+    Name = "intern-devops"
+  }
 
-#   provisioner "local-exec" {
-#     working_dir = var.ansible_working_dir
-#     command = "ansible-playbook --inventory ${self.public_ip}, --private-key ${var.ec2_ssh_private_key} --user ${var.aws_ec2_user} config-new-ec2-instance.yaml"
-#   }
-# }
+  provisioner "local-exec" {
+    working_dir = var.ansible_working_dir
+    command = "ansible-playbook --inventory ${self.public_ip}, --private-key ${var.ec2_ssh_private_key} --user ${var.aws_ec2_user} config-new-ec2-instance.yaml"
+  }
+}
 
 resource "aws_instance" "jenkins" {
   ami           = var.aws_ec2_jenkins_ami

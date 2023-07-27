@@ -8,10 +8,6 @@ RUN chown -R nginx:nginx /app
 
 RUN useradd -ms /bin/bash newuser
 
-EXPOSE 80
-
-EXPOSE 443
-
 USER newuser
 
 WORKDIR /home/newuser

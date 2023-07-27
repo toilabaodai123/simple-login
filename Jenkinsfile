@@ -66,7 +66,11 @@ pipeline {
         
         stage("Deploy"){
             steps{
-               echo "Deploying..." 
+                withCredentials([sshUserPrivateKey(credentialsId: 'ec2-ssh', keyFileVariable: 'MY_SSH_KEY', usernameVariable: "MY_SSH_USER")]) {
+                    sh """
+                        ssh -o StrictHostKeyChecking=no -i $MY_SSH_KEY $MY_SSH_USER@3.86.231.136 docker container stop app ; docker build . --pull -t daipham99/learning:latest ; docker container prune -f
+                    """
+                }
             }
         }
         
