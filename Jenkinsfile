@@ -1,9 +1,11 @@
 pipeline {
     agent any
+
     stages {
         stage('Check enviroment') {
             steps {
                 sh """
+                    git --version
                     docker version
                 """
             }
@@ -27,10 +29,11 @@ pipeline {
                 sh """
 					cd app
                     docker build -t docker_image .
-					docker run -d --name app docker_image 					
+                    docker run -v .:/app --rm -w /app composer:2.5.8 composer install
+					docker run -d --name app -v .:/app docker_image 					
                 """ 
             }
-        }			
+        }		
 
         stage('Testing...') {
             steps {
@@ -44,17 +47,30 @@ pipeline {
 				echo "Running selenium test cases..."
 				echo "Running postman-cli test cases..."
             }
-        }  
+        }
 		
-        stage('Deploy') {
+        stage('Push to docker repo') {
+            environment {
+                DOCKER_HUB_CREDENTIALS = credentials("dockerhub")
+            }                
             steps{
-				echo "Deploying..."
+				sh """
+				    cd app
+				    docker login -u ${DOCKER_HUB_CREDENTIALS_USR} -p ${DOCKER_HUB_CREDENTIALS_PSW}
+				    docker image tag docker_image daipham99/learning:latest
+				    docker image push daipham99/learning:latest
+				    docker logout
+				"""
             }
         }
         
+        stage("Deploy"){
+            steps{
+               echo "Deploying..." 
+            }
+        }
         
     }
-    
     post {
         always { 
             echo '------------Cleaning up...-------------'
@@ -62,6 +78,7 @@ pipeline {
                 docker container stop app
                 docker container prune -f
                 docker image rm docker_image -f
+                docker volume prune -f
             """
         }
     }
