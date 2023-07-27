@@ -1,22 +1,10 @@
 pipeline {
     agent any
     stages {
-        stage('For main branch') {
-            when {
-                branch "main"
-            }            
+        stage('Check enviroment') {
             steps {
-                echo "for main branch..."
+                echo "hi"
             }
-        } 
-
-        stage('For feature branches') {
-            when {
-                 branch pattern: "feature-\\d+", comparator: "REGEXP"
-            }            
-            steps {
-                echo "for feature branch..."
-            }
-        }          
+        }        
     }  
 }

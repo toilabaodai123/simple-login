@@ -49,7 +49,7 @@
     - name: Update apt 
       shell: apt update 
 
-    - name: Install packages for docker
+    - name: Install docker packages
       apt:
         pkg:
         - docker-ce
