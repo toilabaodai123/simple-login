@@ -88,6 +88,7 @@ pipeline {
         always { 
             echo '------------Cleaning up...-------------'
             sh """
+                docker image prune -f
                 docker container stop app
                 docker container prune -f
                 docker image rm docker_image -f
