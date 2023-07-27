@@ -4,8 +4,9 @@ COPY . /app
 
 COPY vhost.conf /opt/docker/etc/nginx
 
-RUN chown -R nginx:nginx /app \
-    useradd -ms /bin/bash newuser
+RUN chown -R nginx:nginx /app 
+
+RUN useradd -ms /bin/bash newuser
 
 EXPOSE 80
 
