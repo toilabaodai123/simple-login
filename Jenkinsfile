@@ -59,7 +59,6 @@ pipeline {
                         ssh -o StrictHostKeyChecking=no -i $MY_SSH_KEY ubuntu@13.229.115.184 docker container prune -f   
                         ssh -o StrictHostKeyChecking=no -i $MY_SSH_KEY ubuntu@13.229.115.184 docker image prune -f
                         ssh -o StrictHostKeyChecking=no -i $MY_SSH_KEY ubuntu@13.229.115.184 docker run -d --pull always -p 80:80 -p 443:443 --name app daipham99/learning:latest   
-                        ssh -o StrictHostKeyChecking=no -i $MY_SSH_KEY ubuntu@13.229.115.184 docker exec -w /app app php artisan key:generate
                     """
                 }
             }
