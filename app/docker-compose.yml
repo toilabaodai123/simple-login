@@ -9,7 +9,7 @@ services:
     depends_on: 
       - mysql
     volumes:
-      - ./app:/app
+      - .:/app
 
   mysql:
     image: mysql:8.0.32
@@ -20,5 +20,5 @@ services:
       - MYSQL_ROOT_PASSWORD=&sK@rI018r37
       - MYSQL_DATABASE=intern_devops
     volumes:
-      - ./app/docker/database:/var/lib/mysql
+      - ./docker/database:/var/lib/mysql
 
