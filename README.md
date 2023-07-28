@@ -36,7 +36,7 @@ Use tools and technologies to create an infrastructure for a webservice.
     - Install AWS CLI
     - Add user to Docker's group   
 
-# The main flow  
+# The Infrastructure flow  
 - Create the infrastructure using Terraform
 - An AWS EC2 instance gets created by Terraform
 - Terraform triggers Ansible after creating the infrastructure successfully
@@ -63,8 +63,13 @@ Use tools and technologies to create an infrastructure for a webservice.
 - Ip address: 175.41.157.142/8080
 - Account: guess/guess
 
-## Demo and result videos,images
-![alt text](/images/result.png)
+## Demo
+- Infrastructure as Code  
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/Vdr84BIlMu8/0.jpg)](https://www.youtube.com/watch?v=Vdr84BIlMu8)  
+
+- Jenkins  
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/b_Tr6k2qDX4/0.jpg)](https://www.youtube.com/watch?v=b_Tr6k2qDX4)
+
 
 
 
