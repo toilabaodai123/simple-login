@@ -30,18 +30,6 @@ pipeline {
             }
         }          
 		
-        stage('Get enviroment file development') {	
-            when {
-                branch 'main'
-            } 
-            steps {
-                    sh """
-                        cd app
-						aws s3 cp s3://dai-jenkins/environment-files/development.env .env
-					"""
-            }
-        }			
-
         stage('Build and run container') {
             steps{
                 sh """
@@ -66,7 +54,19 @@ pipeline {
             steps{
                 echo "run some quality tests"
             }
-        }        
+        }
+
+        stage('Get enviroment file development') {	
+            when {
+                branch 'main'
+            } 
+            steps {
+                    sh """
+                        cd app
+						aws s3 cp s3://dai-jenkins/environment-files/development.env .env
+					"""
+            }
+        }	        
 		
         stage('Push to docker repo') {
             when {
