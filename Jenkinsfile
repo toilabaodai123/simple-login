@@ -55,13 +55,13 @@ pipeline {
                 DOCKER_HUB_CREDENTIALS = credentials("dockerhub")
             }                
             steps{
-				sh """
+				sh '''
 				    cd app
-				    docker login -u ${DOCKER_HUB_CREDENTIALS_USR} -p ${DOCKER_HUB_CREDENTIALS_PSW}
+				    docker login -u $DOCKER_HUB_CREDENTIALS_USR -p $DOCKER_HUB_CREDENTIALS_PSW
 				    docker image tag docker_image daipham99/learning:latest
 				    docker image push daipham99/learning:latest
 				    docker logout
-				"""
+				'''
             }
         }
         
@@ -71,16 +71,16 @@ pipeline {
             }  
             steps{
                 withCredentials([sshUserPrivateKey(credentialsId: 'ec2-ssh', keyFileVariable: 'MY_SSH_KEY')]) {
-                    sh """
-                        ssh -o StrictHostKeyChecking=no -i $MY_SSH_KEY ubuntu@13.250.101.14 sh '''#!/bin/bash
+                    sh '''
+                        ssh -o StrictHostKeyChecking=no -i $MY_SSH_KEY ubuntu@13.250.101.14 sh """#!/bin/bash
                             docker container stop app 
                             docker container rm app -f
                             docker container prune -f 
                             docker image prune -f
                             docker run -d --pull always -p 80:80 -p 443:443 --name app daipham99/learning:latest
                             docker exec -w /app app php artisan key:generate
-                        ''' 
-                    """
+                        """
+                    '''
                 }
             }
         }
