@@ -63,12 +63,15 @@ Use tools and technologies to create an infrastructure for a webservice.
 - Ip address: 175.41.157.142/8080
 - Account: guess/guess
 
-## Demo
-- Infrastructure as Code  
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/Vdr84BIlMu8/0.jpg)](https://www.youtube.com/watch?v=Vdr84BIlMu8)  
+# Demo
 
 - Jenkins  
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/b_Tr6k2qDX4/0.jpg)](https://www.youtube.com/watch?v=b_Tr6k2qDX4)
+
+- Infrastructure as Code  
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/Vdr84BIlMu8/0.jpg)](https://www.youtube.com/watch?v=Vdr84BIlMu8)  
+
+
 
 
 
