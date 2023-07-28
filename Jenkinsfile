@@ -10,9 +10,24 @@ pipeline {
                     aws configure list
                 """
             }
-        }  
+        }
+
+        stage('Get enviroment file local') {	
+            when {
+                branch 'feature-*'
+            } 
+            steps {
+                    sh """
+                        cd app
+						cp .env.example .env
+					"""
+            }
+        }          
 		
         stage('Get enviroment file development') {	
+            when {
+                branch 'main'
+            } 
             steps {
                     sh """
                         cd app
