@@ -18,10 +18,7 @@ pipeline {
             }
         }
 
-        stage('Get enviroment file local') {	
-            when {
-                branch 'feature-*'
-            } 
+        stage('Get enviroment file local') {
             steps {
                     sh """
                         cd app
