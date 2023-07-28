@@ -1,5 +1,13 @@
 # About  
 Use tools and technologies to create an infrastructure for a webservice.
+# Project folder structure
+├── app  
+├── infrastructure  
+│   ├── ansible   
+│   └── terraform  
+├── docker-compose.yml  
+├── Jenkinsfile  
+├── README.md  
 # Tools, other technologies used in this project
 - **Docker**  
     - Build a Docker image for the Laravel web application.  
