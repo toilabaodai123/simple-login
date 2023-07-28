@@ -31,7 +31,7 @@ pipeline {
             steps {
                     sh """
                         cd app
-						aws s3 cp s3://dai-jenkins/environment-files/development.env .
+						aws s3 cp s3://dai-jenkins/environment-files/development.env .env
 					"""
             }
         }			
