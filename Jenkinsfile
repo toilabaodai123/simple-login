@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('Check enviroment') {
+        stage('Check enviroment && web app instance') {
             steps {
                 sh """
                     git --version
@@ -9,6 +9,12 @@ pipeline {
                     aws --version
                     aws configure list
                 """
+                // check web app instance ssh connection
+                withCredentials([sshUserPrivateKey(credentialsId: 'ec2-ssh', keyFileVariable: 'MY_SSH_KEY', usernameVariable: 'DESTINATION')]) {
+                    sh '''
+                        ssh -o StrictHostKeyChecking=no -i $MY_SSH_KEY $DESTINATION whoami
+                    '''
+                }
             }
         }
 
@@ -19,7 +25,7 @@ pipeline {
             steps {
                     sh """
                         cd app
-						cp .env.example .env
+						aws s3 cp s3://dai-jenkins/environment-files/local.env .env
 					"""
             }
         }          

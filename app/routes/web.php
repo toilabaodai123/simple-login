@@ -18,5 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function () {
-    return "new branch";
+    return "new branch 2";
 });
