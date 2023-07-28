@@ -104,7 +104,7 @@
       name: jenkins
       state: started
 
-  - name: Install Jenkins
+  - name: Install Unzip
     apt:
       name: unzip
       state: latest

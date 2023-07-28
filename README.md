@@ -27,7 +27,8 @@ Use tools and technologies to create an infrastructure for a webservice.
     ## For **Jenkins** instance:  
     - Install Jenkins  
     - Install Docker  
-    - Install AWS Cli  
+    - Install AWS Cli
+    - Add user to Docker's group   
 
 # The main flow  
 - Create the infrastructure using Terraform
