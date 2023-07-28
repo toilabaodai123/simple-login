@@ -40,7 +40,7 @@ Use tools and technologies to create an infrastructure for a webservice.
 
 # For demand for testing
 <ins>Please be noticed that since i'm using AWS services at free tier level so i will mostly need to turn it off for finance purporses. 
-    The IP of the instances are not static since it will be changed everytime i turn it back on, if you can't connect through the IPs mean the instances are offline or they're online but the IPs have been changed.  
+    The IP of the instances are not static since it will get changed everytime i turn it back on, if you can't connect through the IPs means the instances are offline or they're online but the IPs have been changed.  
     In case of demands, please feel free to contact on Facebook (https://www.facebook.com/kobiet.tuikobiet/).  
 </ins>
 ## Web app  
