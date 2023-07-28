@@ -20,3 +20,7 @@ Route::get('/', function () {
 Route::get('/test', function () {
     return "new branch 2";
 });
+
+Route::get('/new-branch', function () {
+    return "testing for ci/cd";
+});
