@@ -27,7 +27,7 @@ Use tools and technologies to create an infrastructure for a webservice.
     ## For **Jenkins** instance:  
     - Install Jenkins  
     - Install Docker  
-    - Install AWS Cli
+    - Install AWS CLI
     - Add user to Docker's group   
 
 # The main flow  
@@ -36,7 +36,14 @@ Use tools and technologies to create an infrastructure for a webservice.
 - Terraform triggers Ansible after creating the infrastructure successfully
 - Ansible runs a playbook 
 - The AWS EC2 instance is now fully configured by Ansible and ready to serve requests
-![alt text](/images/result.png)
+
+# The Jenkins flow  
+- Check environment state of the instance and check if its able to SSH to the web app instance
+- Get the correct .env file based on the branch which is triggering the build
+- Build the image and run 
+- Run some tests (Will update this stage soon)
+- Tag and push Docker image to a repo, currently I'm using Docker Hub
+- Finally, SSH to the web app instance to make it to use to most recent Docker image.
 
 # For demand for testing
 <ins>Please be noticed that since i'm using AWS services at free tier level so i will mostly need to turn it off for finance purporses. 
@@ -50,7 +57,8 @@ Use tools and technologies to create an infrastructure for a webservice.
 - Ip address: 175.41.157.142/8080
 - Account: guess/guess
 
-## Demo videos
+## Demo and result videos,images
+![alt text](/images/result.png)
 
 
 

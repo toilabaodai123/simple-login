@@ -52,6 +52,21 @@ pipeline {
                 """ 
             }
         }
+
+        stage('Test') {
+            steps{
+                echo "run some normal tests"
+            }
+        }
+
+        stage('Quality test') {
+            when {
+                branch 'main'
+            }             
+            steps{
+                echo "run some quality tests"
+            }
+        }        
 		
         stage('Push to docker repo') {
             when {
