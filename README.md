@@ -51,8 +51,16 @@ Use tools and technologies to create an infrastructure for a webservice.
 - Tag and push Docker image to a repo, currently I'm using Docker Hub
 - Finally, SSH to the web app instance to make it to use to most recent Docker image.
 
+# Demo
+
+- Jenkins  
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/b_Tr6k2qDX4/0.jpg)](https://www.youtube.com/watch?v=b_Tr6k2qDX4)
+
+- Infrastructure as Code  
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/Vdr84BIlMu8/0.jpg)](https://www.youtube.com/watch?v=Vdr84BIlMu8)  
+
 # For demand for testing
-<ins>Please be noticed that since i'm using AWS services at free tier level so i will mostly need to turn it off for finance purporses. 
+<ins>Please be noticed that since i'm using AWS services at free tier level so i will mostly need to turn it off for financial purporses. 
     The IP of the instances are not static since it will get changed everytime i turn it back on, if you can't connect through the IPs means the instances are offline or they're online but the IPs have been changed.  
     In case of demands, please feel free to contact on Facebook (https://www.facebook.com/kobiet.tuikobiet/).  
 </ins>
@@ -63,13 +71,7 @@ Use tools and technologies to create an infrastructure for a webservice.
 - Ip address: 175.41.157.142/8080
 - Account: guess/guess
 
-# Demo
 
-- Jenkins  
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/b_Tr6k2qDX4/0.jpg)](https://www.youtube.com/watch?v=b_Tr6k2qDX4)
-
-- Infrastructure as Code  
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/Vdr84BIlMu8/0.jpg)](https://www.youtube.com/watch?v=Vdr84BIlMu8)  
 
 
 
