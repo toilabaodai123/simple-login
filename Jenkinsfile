@@ -70,9 +70,9 @@ pipeline {
                 branch 'main'
             }  
             steps{
-                withCredentials([sshUserPrivateKey(credentialsId: 'ec2-ssh', keyFileVariable: 'MY_SSH_KEY')]) {
+                withCredentials([sshUserPrivateKey(credentialsId: 'ec2-ssh', keyFileVariable: 'MY_SSH_KEY', usernameVariable: 'DESTINATION')]) {
                     sh '''
-                        ssh -o StrictHostKeyChecking=no -i $MY_SSH_KEY ubuntu@13.250.101.14 sh """#!/bin/bash
+                        ssh -o StrictHostKeyChecking=no -i $MY_SSH_KEY $DESTINATION sh """#!/bin/bash
                             docker container stop app 
                             docker container rm app -f
                             docker container prune -f 
