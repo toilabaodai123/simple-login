@@ -22,7 +22,11 @@ pipeline {
             steps{
                 sh """
 					cd app
-					docker run -d --rm -v .:/app composer:2.5.8 sh -c "cd app && composer install && php artisan key:generate"
+					docker run --rm -v .:/app composer:2.5.8 sh  '''#!/bin/bash
+                        cd app
+                        composer install
+                        php artisan key:generate
+                    '''
                     docker build -t docker_image .
 					docker run -d --name app -v .:/app docker_image
                 """ 
@@ -70,7 +74,7 @@ pipeline {
     }
     post {
         always { 
-            echo '------------Cleaning up...-------------'
+            echo "------------Cleaning up...-------------"
             sh """
                 docker image prune -f
                 docker container stop app
