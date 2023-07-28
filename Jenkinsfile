@@ -6,14 +6,17 @@ pipeline {
                 sh """
                     git --version
                     docker version
+                    aws --version
+                    aws configure list
                 """
             }
         }  
 		
-        stage('Get enviroment file') {	
+        stage('Get enviroment file development') {	
             steps {
                     sh """
-						cp ./app/.env.example ./app/.env
+                        cd app
+						aws s3 cp s3://dai-jenkins/environment-files/development.env .
 					"""
             }
         }			

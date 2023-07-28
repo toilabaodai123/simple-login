@@ -104,4 +104,12 @@
       name: jenkins
       state: started
 
+  - name: Install Jenkins
+    apt:
+      name: unzip
+      state: latest
+
+  - name: Download aws cli zip then remove the files
+    shell: curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip && ./aws/install && rm -rf aws && rm -f awscliv2.zip
+
 
