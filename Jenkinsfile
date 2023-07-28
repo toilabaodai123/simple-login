@@ -22,7 +22,7 @@ pipeline {
             steps{
                 sh """
 					cd app
-					docker run -u root -d --rm -v .:/app composer:2.5.8 sh -c "composer install && php artisan key:generate"
+					docker run -u root -d --rm -v .:/app composer:2.5.8 sh -c "composer install"
                     docker build -t docker_image .
 					docker run -d --name app docker_image
                 """ 
@@ -60,6 +60,7 @@ pipeline {
                             docker container prune -f 
                             docker image prune -f
                             docker run -d --pull always -p 80:80 -p 443:443 --name app daipham99/learning:latest
+                            docker exec -w /app app php artisan key:generate
                         ''' 
                     """
                 }
