@@ -2,11 +2,11 @@
 Use tools and technologies to create an infrastructure for a webservice.
 # Project folder structure
 ├── app   
-&emsp;&emsp;├── Dockerfile  
-&emsp;&emsp;└── docker-compose.yml  
+│&emsp;&emsp;├── Dockerfile  
+│&emsp;&emsp;└── docker-compose.yml  
 ├── infrastructure  
-&emsp;&emsp;├── ansible   
-&emsp;&emsp;└── terraform  
+│&emsp;&emsp;├── ansible   
+│&emsp;&emsp;└── terraform  
 ├── Jenkinsfile  
 # Tools, other technologies used in this project
 - **Docker**  
