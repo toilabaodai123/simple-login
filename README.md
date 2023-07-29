@@ -1,10 +1,12 @@
 # About  
 Use tools and technologies to create an infrastructure for a webservice.
 # Project folder structure
-├── app  
+├── app   
+&emsp;&emsp;├── Dockerfile  
+&emsp;&emsp;└── docker-compose.yml  
 ├── infrastructure  
-│   ├── ansible   
-│   └── terraform  
+&emsp;&emsp;├── ansible   
+&emsp;&emsp;└── terraform  
 ├── Jenkinsfile  
 # Tools, other technologies used in this project
 - **Docker**  
@@ -57,11 +59,14 @@ Use tools and technologies to create an infrastructure for a webservice.
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/b_Tr6k2qDX4/0.jpg)](https://www.youtube.com/watch?v=b_Tr6k2qDX4)
 
 - Infrastructure as Code  
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/Vdr84BIlMu8/0.jpg)](https://www.youtube.com/watch?v=Vdr84BIlMu8)  
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/Vdr84BIlMu8/0.jpg)](https://www.youtube.com/watch?v=Vdr84BIlMu8) 
+
+- Prometheus & Grafana  
+![alt text](./images/prometheus-grafana.png)
 
 # For demand for testing
-<ins>Please be noticed that since i'm using AWS services at free tier level so i will mostly need to turn it off for financial purporses. 
-    The IP of the instances are not static since it will get changed everytime i turn it back on, if you can't connect through the IPs means the instances are offline or they're online but the IPs have been changed.  
+<ins>Please be noticed that since i'm using AWS services at free tier level so i will mostly need to turn it off for financial purposes. 
+    The IP of the instances are not static since it will get changed everytime i turn it back on, if you can't connect through the IPs means the instances are offline or they're online but the IPs have been changed.    
     In case of demands, please feel free to contact on Facebook (https://www.facebook.com/kobiet.tuikobiet/).  
 </ins>
 ## Web app  
