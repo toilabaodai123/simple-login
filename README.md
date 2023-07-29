@@ -5,8 +5,12 @@ Use tools and technologies to create an infrastructure for a webservice.
 │&emsp;&emsp;├── Dockerfile  
 │&emsp;&emsp;└── docker-compose.yml  
 ├── infrastructure  
-│&emsp;&emsp;├── ansible   
-│&emsp;&emsp;└── terraform  
+│&emsp;&emsp;├── ansible  
+│&emsp;&emsp;│&emsp;&emsp;└── config-jenkins-instance.yaml  
+│&emsp;&emsp;│&emsp;&emsp;└── config-new-ec2-instance.yaml  
+│&emsp;&emsp;└── terraform   
+│&emsp;&emsp;│&emsp;&emsp;└── main.tf  
+│&emsp;&emsp;│&emsp;&emsp;└── development-terraform.example.tfvars  
 ├── Jenkinsfile  
 # Tools, other technologies used in this project
 - **Docker**  
