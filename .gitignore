@@ -9,4 +9,5 @@ infrastructure/terraform/.terraform
 infrastructure/terraform/.terraform.*
 
 #etc
+local
 *.pem
