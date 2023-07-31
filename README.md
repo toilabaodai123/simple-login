@@ -1,10 +1,10 @@
 # Summary 
-- Use tools and technologies to create an AWS infrastructure of
+- Use tools and technologies to create an infrastructure on AWS which contains
     - A Laravel web application  
-    - A CI/CD pipeline using Jenkins     
-- Charts to describe the project 
--    <img src='./images/aws-services-chart.png'> 
-- CI/CD pipeline using Jenkins (Updating...)
+    - A Jenkins web for a CI/CD pipeline.     
+- Some charts to describe the project 
+    - <img src='./images/aws-services-chart.png'> 
+    - CI/CD pipeline using Jenkins (Updating...).
  
 # Tools, other technologies used in this project
 - **Docker**  
@@ -65,7 +65,7 @@
 # Setup steps
 - Go to infrastructure/terraform folder
 - Inside the `development-terraform.example.tfvars` file, change the values of the variables to match your desire
-- Run `terraform apply -var-file="development-terraform.example.tfvars"`
+- Run `terraform apply -var-file="development-terraform.example.tfvars"`.
 
 # For demand for testing
 <ins>Please be noticed that since i'm using AWS services at free tier level so i will mostly need to turn it off for financial purposes. 
