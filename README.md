@@ -1,17 +1,11 @@
 # Summary 
-Use tools and technologies to create an infrastructure for a Laravel web application on AWS.
-# Project folder structure
-├── app   
-│&emsp;&emsp;├── Dockerfile  
-│&emsp;&emsp;└── docker-compose.yml  
-├── infrastructure  
-│&emsp;&emsp;├── ansible  
-│&emsp;&emsp;│&emsp;&emsp;├── config-jenkins-instance.yaml  
-│&emsp;&emsp;│&emsp;&emsp;└── config-new-ec2-instance.yaml  
-│&emsp;&emsp;├─── terraform   
-│&emsp;&emsp;│&emsp;&emsp;├── main.tf  
-│&emsp;&emsp;│&emsp;&emsp;└── development-terraform.example.tfvars  
-├── Jenkinsfile  
+- Use tools and technologies to create an AWS infrastructure of
+    - A Laravel web application  
+    - A CI/CD pipeline using Jenkins     
+- Charts to describe the project 
+-    <img src='./images/aws-services-chart.png'> 
+- CI/CD pipeline using Jenkins (Updating...)
+ 
 # Tools, other technologies used in this project
 - **Docker**  
     - Build a Docker image for the Laravel web application  
@@ -20,7 +14,8 @@ Use tools and technologies to create an infrastructure for a Laravel web applica
 - **AWS**  
     - EC2: For a webservice using a Docker container to handle requests and a Jenkins server  
     - S3: For storing db exported files  
-    - RDS: For a database.    
+    - RDS: For a database.
+    - VPC: For a virtual private network.    
 
 - **Jenkins**  
     - To provide CI/CD for the web app.    
@@ -42,7 +37,7 @@ Use tools and technologies to create an infrastructure for a Laravel web applica
     - Install AWS CLI
     - Add user to Docker's group.     
 
-# The Infrastructure flow  
+# The Infrastructure as Code flow  
 - Create the infrastructure using Terraform
 - An AWS EC2 instance gets created by Terraform
 - Terraform triggers Ansible after creating the infrastructure successfully
@@ -66,7 +61,11 @@ Use tools and technologies to create an infrastructure for a Laravel web applica
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/Vdr84BIlMu8/0.jpg)](https://www.youtube.com/watch?v=Vdr84BIlMu8) 
 
 - Prometheus & Grafana  
-![alt text](./images/prometheus-grafana.png)
+![alt text](./images/prometheus-grafana.png)  
+# Setup steps
+- Go to infrastructure/terraform folder
+- Inside the `development-terraform.example.tfvars` file, change the values of the variables to match your desire
+- Run `terraform apply -var-file="development-terraform.example.tfvars"`
 
 # For demand for testing
 <ins>Please be noticed that since i'm using AWS services at free tier level so i will mostly need to turn it off for financial purposes. 

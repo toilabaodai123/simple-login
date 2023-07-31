@@ -83,4 +83,7 @@
           - "80:80"
           - "443:443"
 
+    - name: Generate new Laravel key
+      shell: docker exec -w /app app php artisan key:generate
+
 
