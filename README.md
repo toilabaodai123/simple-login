@@ -1,5 +1,5 @@
-# About  
-Use tools and technologies to create an infrastructure for a webservice.
+# Summary 
+Use tools and technologies to create an infrastructure for a web application on AWS.
 # Project folder structure
 ├── app   
 │&emsp;&emsp;├── Dockerfile  
