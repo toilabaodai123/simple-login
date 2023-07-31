@@ -14,40 +14,40 @@ Use tools and technologies to create an infrastructure for a Laravel web applica
 ├── Jenkinsfile  
 # Tools, other technologies used in this project
 - **Docker**  
-    - Build a Docker image for the Laravel web application.  
+    - Build a Docker image for the Laravel web application  
     - Run a Docker container using the image from above on an AWS EC2 instance to serve requests.  
 
 - **AWS**  
     - EC2: For a webservice using a Docker container to handle requests and a Jenkins server  
     - S3: For storing db exported files  
-    - RDS: For a database  
+    - RDS: For a database.    
 
 - **Jenkins**  
-    - To provide CI/CD for the web app  
+    - To provide CI/CD for the web app.    
 
 - **Terraform**  
     - To create an infrastructure which includes 2 aws ec2 instances (1 for web app, 1 for Jenkins)
-    - Trigger Ansible to config the infrastructure when the infrastructure is created  
+    - Trigger Ansible to config the infrastructure when the infrastructure is created.    
 
 - **Ansible**  
     Config the infrastructure from Terraform, the steps are:  
     ## For **web app** instance:  
     - Install Docker  
     - Add user to Docker's group  
-    - Pull Docker image (https://hub.docker.com/repository/docker/daipham99/learning) and uses it to run a Docker container  
+    - Pull Docker image (https://hub.docker.com/repository/docker/daipham99/learning) and uses it to run a Docker container.    
 
     ## For **Jenkins** instance:  
     - Install Jenkins  
     - Install Docker  
     - Install AWS CLI
-    - Add user to Docker's group   
+    - Add user to Docker's group.     
 
 # The Infrastructure flow  
 - Create the infrastructure using Terraform
 - An AWS EC2 instance gets created by Terraform
 - Terraform triggers Ansible after creating the infrastructure successfully
 - Ansible runs a playbook 
-- The AWS EC2 instance is now fully configured by Ansible and ready to serve requests
+- The AWS EC2 instance is now fully configured by Ansible and ready to serve requests.  
 
 # The Jenkins flow  
 - Check environment state of the instance and check if its able to SSH to the web app instance
