@@ -1,5 +1,5 @@
 # Summary 
-Use tools and technologies to create an infrastructure for a web application on AWS.
+Use tools and technologies to create an infrastructure for a Laravel web application on AWS.
 # Project folder structure
 ├── app   
 │&emsp;&emsp;├── Dockerfile  
